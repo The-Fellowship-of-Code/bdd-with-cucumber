@@ -1,0 +1,26 @@
+version: '3.7'
+
+networks:
+  local:
+    name: cucumber-demo-network
+
+services:
+
+  postgres11:
+    image: postgres:11
+    hostname: postgres
+    environment:
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: cucumber-demo
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgres11-data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - local
+volumes:
+  postgresql:
+  postgres11-data:
+    driver: local
