@@ -56,4 +56,9 @@ public class ProductService {
         return productRepositoryAdapter.upsert(product);
     }
 
+    public List<Product> findProductsBySupplierId(Long supplierId){
+
+        return productRepositoryAdapter.findProductsBySupplierId(supplierId);
+    }
+
 }

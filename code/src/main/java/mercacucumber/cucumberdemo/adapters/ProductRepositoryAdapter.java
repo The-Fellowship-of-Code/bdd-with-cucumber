@@ -41,4 +41,12 @@ public class ProductRepositoryAdapter {
 
         productRepository.deleteById(id);
     }
+
+    public List<Product> findProductsBySupplierId(Long id){
+
+        return productRepository.findBySupplierId(id)
+                .stream()
+                .map(productRepositoryMapper::toDomain)
+                .toList();
+    }
 }
